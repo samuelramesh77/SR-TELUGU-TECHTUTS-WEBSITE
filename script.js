@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
     console.log("SR TELUGU TECHTUTS Website Loaded Successfully!");
 });
 
