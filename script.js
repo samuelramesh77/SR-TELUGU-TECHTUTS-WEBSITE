@@ -285,23 +285,59 @@ async function loadYouTubeVideos() {
                 </div>
 
 
-                <div class="video-info">
+               const publishedDate =
+    new Date(video.snippet.publishedAt).toLocaleDateString(
+        "te-IN",
+        {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        }
+    );
 
-                    <span>🔴 SR TELUGU TECHTUTS</span>
 
-                    <h3>${title}</h3>
+videoCard.innerHTML = `
 
-                    <a
-                        href="https://youtu.be/${videoId}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="watch-btn">
-                        ▶ Watch Video
-                    </a>
+    <div class="video-thumbnail">
 
-                </div>
+        <img
+            src="${thumbnail}"
+            alt="${title.replace(/"/g, "&quot;")}"
+            loading="lazy"
+        >
 
-            `;
+        <a
+            href="https://youtu.be/${videoId}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="video-play">
+            ▶
+        </a>
+
+    </div>
+
+
+    <div class="video-info">
+
+        <span>🔴 SR TELUGU TECHTUTS</span>
+
+        <h3>${title}</h3>
+
+        <p class="video-date">
+            📅 ${publishedDate}
+        </p>
+
+        <a
+            href="https://youtu.be/${videoId}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="watch-btn">
+            ▶ Watch Video
+        </a>
+
+    </div>
+
+`;
 
 
             youtubeContainer.appendChild(videoCard);
