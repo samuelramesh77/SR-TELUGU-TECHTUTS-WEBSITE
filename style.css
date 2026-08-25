@@ -1940,6 +1940,19 @@ nav a:hover {
 
 
 
+/* =====================================
+   VIDEO PUBLISHED DATE
+===================================== */
+
+.video-date {
+    margin: -8px 0 18px;
+
+    color: #aaaaaa;
+
+    font-size: 13px;
+}
+
+
 
 
 
