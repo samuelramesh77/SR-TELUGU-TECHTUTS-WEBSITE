@@ -183,13 +183,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 // =====================================
 // YOUTUBE DATA API v3
 // SR TELUGU TECHTUTS
 // =====================================
 
-const YOUTUBE_API_KEY = "AIzaSyB7dTjw5uHlJdTcgGWY7u7Avkf6xbVzpEE";
+const YOUTUBE_API_KEY = "మీ_API_KEY_ఇక్కడ_పెట్టండి";
 const CHANNEL_ID = "UC1mpDsJIOLiw1e6wP-56Sgw";
 const MAX_RESULTS = 12;
 
@@ -221,15 +220,17 @@ async function loadYouTubeVideos() {
 
         const response = await fetch(apiURL);
 
+        const data = await response.json();
+
+        console.log("YouTube API Response:", data);
+
         if (!response.ok) {
 
             throw new Error(
+                data?.error?.message ||
                 "YouTube API Error: " + response.status
             );
-
         }
-
-        const data = await response.json();
 
         youtubeContainer.innerHTML = "";
 
@@ -259,7 +260,6 @@ async function loadYouTubeVideos() {
                 video.snippet.thumbnails.default?.url;
 
 
-            // Published date
             const publishedDate =
                 new Date(
                     video.snippet.publishedAt
@@ -273,16 +273,11 @@ async function loadYouTubeVideos() {
                 );
 
 
-            // Create card
             const videoCard =
                 document.createElement("div");
 
             videoCard.className = "video-card";
 
-
-            // =====================================
-            // VIDEO CARD HTML
-            // =====================================
 
             videoCard.innerHTML = `
 
@@ -298,9 +293,10 @@ async function loadYouTubeVideos() {
                         href="https://youtu.be/${videoId}"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="video-play"
-                        aria-label="Watch ${title}">
+                        class="video-play">
+
                         ▶
+
                     </a>
 
                 </div>
@@ -340,26 +336,6 @@ async function loadYouTubeVideos() {
         });
 
 
-        // =====================================
-        // ANIMATION OBSERVER
-        // =====================================
-
-        const newVideoCards =
-            youtubeContainer.querySelectorAll(".video-card");
-
-        if (
-            typeof animationObserver !== "undefined"
-        ) {
-
-            newVideoCards.forEach(function (card) {
-
-                animationObserver.observe(card);
-
-            });
-
-        }
-
-
         console.log(
             "YouTube videos loaded successfully:",
             data.items.length
@@ -377,7 +353,10 @@ async function loadYouTubeVideos() {
 
             <p>
                 YouTube వీడియోలు లోడ్ చేయడంలో సమస్య వచ్చింది.
-                కొంతసేపటి తర్వాత మళ్లీ ప్రయత్నించండి.
+            </p>
+
+            <p style="color:red;">
+                ${error.message}
             </p>
 
         `;
