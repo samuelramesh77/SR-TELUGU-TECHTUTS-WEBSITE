@@ -194,7 +194,10 @@ const CHANNEL_ID = "UC1mpDsJIOLiw1e6wP-56Sgw";
 const MAX_RESULTS = 12;
 
 
-// Load latest YouTube videos
+// =====================================
+// LOAD LATEST YOUTUBE VIDEOS
+// =====================================
+
 async function loadYouTubeVideos() {
 
     const youtubeContainer =
@@ -216,9 +219,7 @@ async function loadYouTubeVideos() {
             `&maxResults=${MAX_RESULTS}` +
             `&type=video`;
 
-
         const response = await fetch(apiURL);
-
 
         if (!response.ok) {
 
@@ -228,12 +229,9 @@ async function loadYouTubeVideos() {
 
         }
 
-
         const data = await response.json();
 
-
         youtubeContainer.innerHTML = "";
-
 
         if (!data.items || data.items.length === 0) {
 
@@ -241,9 +239,12 @@ async function loadYouTubeVideos() {
                 "<p>ప్రస్తుతం వీడియోలు అందుబాటులో లేవు.</p>";
 
             return;
-
         }
 
+
+        // =====================================
+        // CREATE VIDEO CARDS
+        // =====================================
 
         data.items.forEach(function (video) {
 
@@ -258,11 +259,30 @@ async function loadYouTubeVideos() {
                 video.snippet.thumbnails.default?.url;
 
 
+            // Published date
+            const publishedDate =
+                new Date(
+                    video.snippet.publishedAt
+                ).toLocaleDateString(
+                    "te-IN",
+                    {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    }
+                );
+
+
+            // Create card
             const videoCard =
                 document.createElement("div");
 
             videoCard.className = "video-card";
 
+
+            // =====================================
+            // VIDEO CARD HTML
+            // =====================================
 
             videoCard.innerHTML = `
 
@@ -278,66 +298,41 @@ async function loadYouTubeVideos() {
                         href="https://youtu.be/${videoId}"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="video-play">
+                        class="video-play"
+                        aria-label="Watch ${title}">
                         ▶
                     </a>
 
                 </div>
 
 
-               const publishedDate =
-    new Date(video.snippet.publishedAt).toLocaleDateString(
-        "te-IN",
-        {
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-        }
-    );
+                <div class="video-info">
 
+                    <span>
+                        🔴 SR TELUGU TECHTUTS
+                    </span>
 
-videoCard.innerHTML = `
+                    <h3>
+                        ${title}
+                    </h3>
 
-    <div class="video-thumbnail">
+                    <p class="video-date">
+                        📅 ${publishedDate}
+                    </p>
 
-        <img
-            src="${thumbnail}"
-            alt="${title.replace(/"/g, "&quot;")}"
-            loading="lazy"
-        >
+                    <a
+                        href="https://youtu.be/${videoId}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="watch-btn">
 
-        <a
-            href="https://youtu.be/${videoId}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="video-play">
-            ▶
-        </a>
+                        ▶ Watch Video
 
-    </div>
+                    </a>
 
+                </div>
 
-    <div class="video-info">
-
-        <span>🔴 SR TELUGU TECHTUTS</span>
-
-        <h3>${title}</h3>
-
-        <p class="video-date">
-            📅 ${publishedDate}
-        </p>
-
-        <a
-            href="https://youtu.be/${videoId}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="watch-btn">
-            ▶ Watch Video
-        </a>
-
-    </div>
-
-`;
+            `;
 
 
             youtubeContainer.appendChild(videoCard);
@@ -345,12 +340,16 @@ videoCard.innerHTML = `
         });
 
 
-        // Add animation observer to newly created cards
+        // =====================================
+        // ANIMATION OBSERVER
+        // =====================================
+
         const newVideoCards =
             youtubeContainer.querySelectorAll(".video-card");
 
-
-        if (typeof animationObserver !== "undefined") {
+        if (
+            typeof animationObserver !== "undefined"
+        ) {
 
             newVideoCards.forEach(function (card) {
 
@@ -374,7 +373,6 @@ videoCard.innerHTML = `
             error
         );
 
-
         youtubeContainer.innerHTML = `
 
             <p>
@@ -389,7 +387,10 @@ videoCard.innerHTML = `
 }
 
 
-// Start YouTube loading
+// =====================================
+// START YOUTUBE LOADING
+// =====================================
+
 document.addEventListener(
     "DOMContentLoaded",
     function () {
@@ -398,4 +399,3 @@ document.addEventListener(
 
     }
 );
-
