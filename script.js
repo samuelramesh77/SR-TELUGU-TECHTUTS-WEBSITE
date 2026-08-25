@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // SR TELUGU TECHTUTS
 // =====================================
 
-const YOUTUBE_API_KEY = "మీ_API_KEY_ఇక్కడ_పెట్టండి";
+const YOUTUBE_API_KEY = "AIzaSyB7dTjw5uHlJdTcgGWY7u7Avkf6xbVzpEE";
 const CHANNEL_ID = "UC1mpDsJIOLiw1e6wP-56Sgw";
 const MAX_RESULTS = 12;
 
