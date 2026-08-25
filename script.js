@@ -181,3 +181,185 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
+// =====================================
+// YOUTUBE DATA API v3
+// SR TELUGU TECHTUTS
+// =====================================
+
+const YOUTUBE_API_KEY = "AIzaSyB7dTjw5uHlJdTcgGWY7u7Avkf6xbVzpEE";
+const CHANNEL_ID = "UC1mpDsJIOLiw1e6wP-56Sgw";
+const MAX_RESULTS = 12;
+
+
+// Load latest YouTube videos
+async function loadYouTubeVideos() {
+
+    const youtubeContainer =
+        document.getElementById("youtubeVideos");
+
+    if (!youtubeContainer) {
+        console.log("YouTube videos container not found!");
+        return;
+    }
+
+    try {
+
+        const apiURL =
+            `https://www.googleapis.com/youtube/v3/search` +
+            `?key=${YOUTUBE_API_KEY}` +
+            `&channelId=${CHANNEL_ID}` +
+            `&part=snippet,id` +
+            `&order=date` +
+            `&maxResults=${MAX_RESULTS}` +
+            `&type=video`;
+
+
+        const response = await fetch(apiURL);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "YouTube API Error: " + response.status
+            );
+
+        }
+
+
+        const data = await response.json();
+
+
+        youtubeContainer.innerHTML = "";
+
+
+        if (!data.items || data.items.length === 0) {
+
+            youtubeContainer.innerHTML =
+                "<p>ప్రస్తుతం వీడియోలు అందుబాటులో లేవు.</p>";
+
+            return;
+
+        }
+
+
+        data.items.forEach(function (video) {
+
+            const videoId = video.id.videoId;
+
+            const title =
+                video.snippet.title;
+
+            const thumbnail =
+                video.snippet.thumbnails.high?.url ||
+                video.snippet.thumbnails.medium?.url ||
+                video.snippet.thumbnails.default?.url;
+
+
+            const videoCard =
+                document.createElement("div");
+
+            videoCard.className = "video-card";
+
+
+            videoCard.innerHTML = `
+
+                <div class="video-thumbnail">
+
+                    <img
+                        src="${thumbnail}"
+                        alt="${title.replace(/"/g, "&quot;")}"
+                        loading="lazy"
+                    >
+
+                    <a
+                        href="https://youtu.be/${videoId}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="video-play">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <div class="video-info">
+
+                    <span>🔴 SR TELUGU TECHTUTS</span>
+
+                    <h3>${title}</h3>
+
+                    <a
+                        href="https://youtu.be/${videoId}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="watch-btn">
+                        ▶ Watch Video
+                    </a>
+
+                </div>
+
+            `;
+
+
+            youtubeContainer.appendChild(videoCard);
+
+        });
+
+
+        // Add animation observer to newly created cards
+        const newVideoCards =
+            youtubeContainer.querySelectorAll(".video-card");
+
+
+        if (typeof animationObserver !== "undefined") {
+
+            newVideoCards.forEach(function (card) {
+
+                animationObserver.observe(card);
+
+            });
+
+        }
+
+
+        console.log(
+            "YouTube videos loaded successfully:",
+            data.items.length
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "YouTube API Error:",
+            error
+        );
+
+
+        youtubeContainer.innerHTML = `
+
+            <p>
+                YouTube వీడియోలు లోడ్ చేయడంలో సమస్య వచ్చింది.
+                కొంతసేపటి తర్వాత మళ్లీ ప్రయత్నించండి.
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+// Start YouTube loading
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        loadYouTubeVideos();
+
+    }
+);
+
