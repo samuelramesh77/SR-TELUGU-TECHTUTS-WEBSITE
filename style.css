@@ -1751,7 +1751,9 @@ nav a:hover {
 .video-thumbnail {
     position: relative;
 
-    height: 220px;
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
 
     overflow: hidden;
 }
