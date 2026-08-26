@@ -336,10 +336,10 @@ async function loadYouTubeVideos() {
         });
 
 
-        console.log(
-            "YouTube videos loaded successfully:",
-            data.items.length
-        );
+console.log(
+    "✅ YouTube videos loaded successfully:",
+    data.items.length
+);
 
 
     } catch (error) {
