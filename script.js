@@ -222,7 +222,7 @@ async function loadYouTubeVideos() {
 
         const data = await response.json();
 
-        console.log("YouTube API Response:", data);
+        
 
         if (!response.ok) {
 
