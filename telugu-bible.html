@@ -111,9 +111,7 @@
 
                 <h2>పాత నిబంధన</h2>
 
-                <div class="books-grid" id="oldTestamentBooks">
-
-  <div class="books-grid" id="oldTestamentBooks">
+          <div class="books-grid" id="oldTestamentBooks">
 
     <button onclick="openBook('genesis')">ఆదికాండము</button>
     <button onclick="openBook('exodus')">నిర్గమకాండము</button>
@@ -162,7 +160,6 @@
 
                 <div class="books-grid" id="newTestamentBooks">
 
-                   <div class="books-grid" id="newTestamentBooks">
 
     <button onclick="openBook('matthew')">మత్తయి</button>
     <button onclick="openBook('mark')">మార్కు</button>
@@ -201,6 +198,38 @@
     </section>
 
 
+
+
+<!-- ================================
+     CHAPTER SECTION
+================================ -->
+
+<div id="chapterSection" class="chapter-section">
+
+    <h2 id="selectedBookName">
+        పుస్తకాన్ని ఎంచుకోండి
+    </h2>
+
+    <div id="chaptersGrid" class="chapters-grid"></div>
+
+</div>
+
+
+<!-- ================================
+     VERSE SECTION
+================================ -->
+
+<div id="verseSection" class="verse-section">
+
+    <h2 id="selectedChapterName"></h2>
+
+    <div id="versesContainer"></div>
+
+</div>
+
+
+
+    
     <script>
 
         function searchBible() {
