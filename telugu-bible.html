@@ -2,6 +2,7 @@
 <html lang="te">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,288 +10,954 @@
     <title>తెలుగు బైబిల్ | SR TELUGU TECHTUTS</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- HEADER -->
-    <header>
 
-        <nav>
+<!-- =====================================
+     HEADER
+===================================== -->
 
-            <a href="index.html" class="logo">
-                SR TELUGU TECHTUTS
-            </a>
+<header>
 
-            <ul>
+    <nav>
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-
-                <li>
-                    <a href="index.html#songs">Songs</a>
-                </li>
-
-                <li>
-                    <a href="index.html#gallery">Gallery</a>
-                </li>
-
-                <li class="dropdown">
-
-                    <a href="#">
-                        Bible ▾
-                    </a>
-
-                    <ul class="dropdown-menu">
-
-                        <li>
-                            <a href="telugu-bible.html">
-                                Telugu Bible
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="english-bible.html">
-                                English Bible
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </li>
-
-                <li>
-                    <a href="index.html#videos">Videos</a>
-                </li>
-
-                <li>
-                    <a href="index.html#contact">Contact</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </header>
+        <a href="index.html" class="logo">
+            SR TELUGU TECHTUTS
+        </a>
 
 
-    <!-- TELUGU BIBLE -->
+        <ul>
 
-    <section class="bible-section">
-
-        <div class="bible-container">
-
-            <h1>📖 తెలుగు బైబిల్</h1>
-
-            <p class="bible-subtitle">
-                దేవుని వాక్యాన్ని చదువుదాం • ధ్యానిద్దాం • జీవితంలో ఆచరిద్దాం
-            </p>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
 
 
-            <!-- SEARCH -->
-
-            <div class="bible-search">
-
-                <input
-                    type="text"
-                    id="bibleSearch"
-                    placeholder="బైబిల్ పుస్తకం కోసం వెతకండి..."
-                >
-
-                <button onclick="searchBible()">
-                    Search
-                </button>
-
-            </div>
+            <li>
+                <a href="index.html#songs">
+                    Songs
+                </a>
+            </li>
 
 
-            <!-- BOOKS -->
-
-            <div class="bible-books">
-
-                <h2>పాత నిబంధన</h2>
-
-          <div class="books-grid" id="oldTestamentBooks">
-
-    <button onclick="openBook('genesis')">ఆదికాండము</button>
-    <button onclick="openBook('exodus')">నిర్గమకాండము</button>
-    <button onclick="openBook('leviticus')">లేవీయకాండము</button>
-    <button onclick="openBook('numbers')">సంఖ్యాకాండము</button>
-    <button onclick="openBook('deuteronomy')">ద్వితీయోపదేశకాండము</button>
-    <button onclick="openBook('joshua')">యెహోషువ</button>
-    <button onclick="openBook('judges')">న్యాయాధిపతులు</button>
-    <button onclick="openBook('ruth')">రూతు</button>
-    <button onclick="openBook('1samuel')">1 సమూయేలు</button>
-    <button onclick="openBook('2samuel')">2 సమూయేలు</button>
-    <button onclick="openBook('1kings')">1 రాజులు</button>
-    <button onclick="openBook('2kings')">2 రాజులు</button>
-    <button onclick="openBook('1chronicles')">1 దినవృత్తాంతములు</button>
-    <button onclick="openBook('2chronicles')">2 దినవృత్తాంతములు</button>
-    <button onclick="openBook('ezra')">ఎజ్రా</button>
-    <button onclick="openBook('nehemiah')">నెహెమ్యా</button>
-    <button onclick="openBook('esther')">ఎస్తేరు</button>
-    <button onclick="openBook('job')">యోబు</button>
-    <button onclick="openBook('psalms')">కీర్తనలు</button>
-    <button onclick="openBook('proverbs')">సామెతలు</button>
-    <button onclick="openBook('ecclesiastes')">ప్రసంగి</button>
-    <button onclick="openBook('songofsolomon')">పరమగీతము</button>
-    <button onclick="openBook('isaiah')">యెషయా</button>
-    <button onclick="openBook('jeremiah')">యిర్మీయా</button>
-    <button onclick="openBook('lamentations')">విలాపవాక్యములు</button>
-    <button onclick="openBook('ezekiel')">యెహెజ్కేలు</button>
-    <button onclick="openBook('daniel')">దానియేలు</button>
-    <button onclick="openBook('hosea')">హోషేయ</button>
-    <button onclick="openBook('joel')">యోవేలు</button>
-    <button onclick="openBook('amos')">ఆమోసు</button>
-    <button onclick="openBook('obadiah')">ఓబద్యా</button>
-    <button onclick="openBook('jonah')">యోనా</button>
-    <button onclick="openBook('micah')">మీకా</button>
-    <button onclick="openBook('nahum')">నహూము</button>
-    <button onclick="openBook('habakkuk')">హబక్కూకు</button>
-    <button onclick="openBook('zephaniah')">జెఫన్యా</button>
-    <button onclick="openBook('haggai')">హగ్గయి</button>
-    <button onclick="openBook('zechariah')">జెకర్యా</button>
-    <button onclick="openBook('malachi')">మలాకీ</button>
-
-  </div>
+            <li>
+                <a href="index.html#gallery">
+                    Gallery
+                </a>
+            </li>
 
 
-                <h2>కొత్త నిబంధన</h2>
+            <li class="dropdown">
 
-                <div class="books-grid" id="newTestamentBooks">
+                <a href="#">
+                    Bible ▾
+                </a>
 
 
-    <button onclick="openBook('matthew')">మత్తయి</button>
-    <button onclick="openBook('mark')">మార్కు</button>
-    <button onclick="openBook('luke')">లూకా</button>
-    <button onclick="openBook('john')">యోహాను</button>
-    <button onclick="openBook('acts')">అపొస్తలుల కార్యములు</button>
-    <button onclick="openBook('romans')">రోమీయులకు</button>
-    <button onclick="openBook('1corinthians')">1 కొరింథీయులకు</button>
-    <button onclick="openBook('2corinthians')">2 కొరింథీయులకు</button>
-    <button onclick="openBook('galatians')">గలతీయులకు</button>
-    <button onclick="openBook('ephesians')">ఎఫెసీయులకు</button>
-    <button onclick="openBook('philippians')">ఫిలిప్పీయులకు</button>
-    <button onclick="openBook('colossians')">కొలొస్సయులకు</button>
-    <button onclick="openBook('1thessalonians')">1 థెస్సలొనీకయులకు</button>
-    <button onclick="openBook('2thessalonians')">2 థెస్సలొనీకయులకు</button>
-    <button onclick="openBook('1timothy')">1 తిమోతికి</button>
-    <button onclick="openBook('2timothy')">2 తిమోతికి</button>
-    <button onclick="openBook('titus')">తీతుకు</button>
-    <button onclick="openBook('philemon')">ఫిలేమోనుకు</button>
-    <button onclick="openBook('hebrews')">హెబ్రీయులకు</button>
-    <button onclick="openBook('james')">యాకోబు</button>
-    <button onclick="openBook('1peter')">1 పేతురు</button>
-    <button onclick="openBook('2peter')">2 పేతురు</button>
-    <button onclick="openBook('1john')">1 యోహాను</button>
-    <button onclick="openBook('2john')">2 యోహాను</button>
-    <button onclick="openBook('3john')">3 యోహాను</button>
-    <button onclick="openBook('jude')">యూదా</button>
-    <button onclick="openBook('revelation')">ప్రకటన</button>
+                <ul class="dropdown-menu">
 
-</div>
+                    <li>
+                        <a href="telugu-bible.html">
+                            Telugu Bible
+                        </a>
+                    </li>
 
-            </div>
+
+                    <li>
+                        <a href="english-bible.html">
+                            English Bible
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <li>
+                <a href="index.html#videos">
+                    Videos
+                </a>
+            </li>
+
+
+            <li>
+                <a href="index.html#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================
+     TELUGU BIBLE
+===================================== -->
+
+<section class="bible-section">
+
+
+    <div class="bible-container">
+
+
+        <h1>
+            📖 తెలుగు బైబిల్
+        </h1>
+
+
+        <p class="bible-subtitle">
+
+            దేవుని వాక్యాన్ని చదువుదాం •
+            ధ్యానిద్దాం •
+            జీవితంలో ఆచరిద్దాం
+
+        </p>
+
+
+
+        <!-- =================================
+             SEARCH
+        ================================== -->
+
+        <div class="bible-search">
+
+
+            <input
+                type="text"
+                id="bibleSearch"
+                placeholder="బైబిల్ పుస్తకం కోసం వెతకండి..."
+            >
+
+
+            <button onclick="searchBible()">
+
+                Search
+
+            </button>
+
 
         </div>
 
-    </section>
+
+
+
+        <!-- =================================
+             BOOKS
+        ================================== -->
+
+        <div class="bible-books">
+
+
+            <!-- OLD TESTAMENT -->
+
+            <h2>
+                పాత నిబంధన
+            </h2>
+
+
+            <div
+                class="books-grid"
+                id="oldTestamentBooks"
+            >
+
+
+                <button onclick="openBook('genesis')">
+                    ఆదికాండము
+                </button>
+
+                <button onclick="openBook('exodus')">
+                    నిర్గమకాండము
+                </button>
+
+                <button onclick="openBook('leviticus')">
+                    లేవీయకాండము
+                </button>
+
+                <button onclick="openBook('numbers')">
+                    సంఖ్యాకాండము
+                </button>
+
+                <button onclick="openBook('deuteronomy')">
+                    ద్వితీయోపదేశకాండము
+                </button>
+
+                <button onclick="openBook('joshua')">
+                    యెహోషువ
+                </button>
+
+                <button onclick="openBook('judges')">
+                    న్యాయాధిపతులు
+                </button>
+
+                <button onclick="openBook('ruth')">
+                    రూతు
+                </button>
+
+                <button onclick="openBook('1samuel')">
+                    1 సమూయేలు
+                </button>
+
+                <button onclick="openBook('2samuel')">
+                    2 సమూయేలు
+                </button>
+
+                <button onclick="openBook('1kings')">
+                    1 రాజులు
+                </button>
+
+                <button onclick="openBook('2kings')">
+                    2 రాజులు
+                </button>
+
+                <button onclick="openBook('1chronicles')">
+                    1 దినవృత్తాంతములు
+                </button>
+
+                <button onclick="openBook('2chronicles')">
+                    2 దినవృత్తాంతములు
+                </button>
+
+                <button onclick="openBook('ezra')">
+                    ఎజ్రా
+                </button>
+
+                <button onclick="openBook('nehemiah')">
+                    నెహెమ్యా
+                </button>
+
+                <button onclick="openBook('esther')">
+                    ఎస్తేరు
+                </button>
+
+                <button onclick="openBook('job')">
+                    యోబు
+                </button>
+
+                <button onclick="openBook('psalms')">
+                    కీర్తనలు
+                </button>
+
+                <button onclick="openBook('proverbs')">
+                    సామెతలు
+                </button>
+
+                <button onclick="openBook('ecclesiastes')">
+                    ప్రసంగి
+                </button>
+
+                <button onclick="openBook('songofsolomon')">
+                    పరమగీతము
+                </button>
+
+                <button onclick="openBook('isaiah')">
+                    యెషయా
+                </button>
+
+                <button onclick="openBook('jeremiah')">
+                    యిర్మీయా
+                </button>
+
+                <button onclick="openBook('lamentations')">
+                    విలాపవాక్యములు
+                </button>
+
+                <button onclick="openBook('ezekiel')">
+                    యెహెజ్కేలు
+                </button>
+
+                <button onclick="openBook('daniel')">
+                    దానియేలు
+                </button>
+
+                <button onclick="openBook('hosea')">
+                    హోషేయ
+                </button>
+
+                <button onclick="openBook('joel')">
+                    యోవేలు
+                </button>
+
+                <button onclick="openBook('amos')">
+                    ఆమోసు
+                </button>
+
+                <button onclick="openBook('obadiah')">
+                    ఓబద్యా
+                </button>
+
+                <button onclick="openBook('jonah')">
+                    యోనా
+                </button>
+
+                <button onclick="openBook('micah')">
+                    మీకా
+                </button>
+
+                <button onclick="openBook('nahum')">
+                    నహూము
+                </button>
+
+                <button onclick="openBook('habakkuk')">
+                    హబక్కూకు
+                </button>
+
+                <button onclick="openBook('zephaniah')">
+                    జెఫన్యా
+                </button>
+
+                <button onclick="openBook('haggai')">
+                    హగ్గయి
+                </button>
+
+                <button onclick="openBook('zechariah')">
+                    జెకర్యా
+                </button>
+
+                <button onclick="openBook('malachi')">
+                    మలాకీ
+                </button>
+
+
+            </div>
 
 
 
 
-<!-- ================================
+            <!-- NEW TESTAMENT -->
+
+            <h2>
+                కొత్త నిబంధన
+            </h2>
+
+
+            <div
+                class="books-grid"
+                id="newTestamentBooks"
+            >
+
+
+                <button onclick="openBook('matthew')">
+                    మత్తయి
+                </button>
+
+                <button onclick="openBook('mark')">
+                    మార్కు
+                </button>
+
+                <button onclick="openBook('luke')">
+                    లూకా
+                </button>
+
+                <button onclick="openBook('john')">
+                    యోహాను
+                </button>
+
+                <button onclick="openBook('acts')">
+                    అపొస్తలుల కార్యములు
+                </button>
+
+                <button onclick="openBook('romans')">
+                    రోమీయులకు
+                </button>
+
+                <button onclick="openBook('1corinthians')">
+                    1 కొరింథీయులకు
+                </button>
+
+                <button onclick="openBook('2corinthians')">
+                    2 కొరింథీయులకు
+                </button>
+
+                <button onclick="openBook('galatians')">
+                    గలతీయులకు
+                </button>
+
+                <button onclick="openBook('ephesians')">
+                    ఎఫెసీయులకు
+                </button>
+
+                <button onclick="openBook('philippians')">
+                    ఫిలిప్పీయులకు
+                </button>
+
+                <button onclick="openBook('colossians')">
+                    కొలొస్సయులకు
+                </button>
+
+                <button onclick="openBook('1thessalonians')">
+                    1 థెస్సలొనీకయులకు
+                </button>
+
+                <button onclick="openBook('2thessalonians')">
+                    2 థెస్సలొనీకయులకు
+                </button>
+
+                <button onclick="openBook('1timothy')">
+                    1 తిమోతికి
+                </button>
+
+                <button onclick="openBook('2timothy')">
+                    2 తిమోతికి
+                </button>
+
+                <button onclick="openBook('titus')">
+                    తీతుకు
+                </button>
+
+                <button onclick="openBook('philemon')">
+                    ఫిలేమోనుకు
+                </button>
+
+                <button onclick="openBook('hebrews')">
+                    హెబ్రీయులకు
+                </button>
+
+                <button onclick="openBook('james')">
+                    యాకోబు
+                </button>
+
+                <button onclick="openBook('1peter')">
+                    1 పేతురు
+                </button>
+
+                <button onclick="openBook('2peter')">
+                    2 పేతురు
+                </button>
+
+                <button onclick="openBook('1john')">
+                    1 యోహాను
+                </button>
+
+                <button onclick="openBook('2john')">
+                    2 యోహాను
+                </button>
+
+                <button onclick="openBook('3john')">
+                    3 యోహాను
+                </button>
+
+                <button onclick="openBook('jude')">
+                    యూదా
+                </button>
+
+                <button onclick="openBook('revelation')">
+                    ప్రకటన
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
      CHAPTER SECTION
-================================ -->
+===================================== -->
 
-<div id="chapterSection" class="chapter-section">
+<div
+    id="chapterSection"
+    class="chapter-section"
+    style="display:none;"
+>
+
 
     <h2 id="selectedBookName">
         పుస్తకాన్ని ఎంచుకోండి
     </h2>
 
-    <div id="chaptersGrid" class="chapters-grid"></div>
+
+    <div
+        id="chaptersGrid"
+        class="chapters-grid"
+    ></div>
+
 
 </div>
 
 
-<!-- ================================
-     VERSE SECTION
-================================ -->
 
-<div id="verseSection" class="verse-section">
+<!-- =====================================
+     VERSE SECTION
+===================================== -->
+
+<div
+    id="verseSection"
+    class="verse-section"
+    style="display:none;"
+>
+
 
     <h2 id="selectedChapterName"></h2>
 
-    <div id="versesContainer"></div>
+
+    <div
+        id="versesContainer"
+    ></div>
+
 
 </div>
 
 
 
-    
-    <script>
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
 
-        function searchBible() {
+<script>
 
-            const search =
-                document.getElementById("bibleSearch").value
-                .toLowerCase();
 
-            const books =
-                document.querySelectorAll(".books-grid button");
+// =====================================
+// SEARCH BIBLE
+// =====================================
 
-            books.forEach(book => {
+function searchBible() {
 
-                const name =
-                    book.textContent.toLowerCase();
 
-                if (name.includes(search)) {
+    const search =
 
-                    book.style.display = "block";
+        document
+        .getElementById("bibleSearch")
+        .value
+        .toLowerCase();
 
-                } else {
 
-                    book.style.display = "none";
+    const books =
 
-                }
+        document
+        .querySelectorAll(".books-grid button");
 
-            });
+
+    books.forEach(book => {
+
+
+        const name =
+
+            book
+            .textContent
+            .toLowerCase();
+
+
+        if (name.includes(search)) {
+
+            book.style.display = "block";
+
+        }
+
+        else {
+
+            book.style.display = "none";
 
         }
 
 
+    });
+
+
+}
 
 
 
+// =====================================
+// CHAPTER COUNTS
+// =====================================
+
+const chapterCounts = {
+
+
+    // OLD TESTAMENT
+
+    genesis: 50,
+    exodus: 40,
+    leviticus: 27,
+    numbers: 36,
+    deuteronomy: 34,
+
+    joshua: 24,
+    judges: 21,
+    ruth: 4,
+
+    "1samuel": 31,
+    "2samuel": 24,
+
+    "1kings": 22,
+    "2kings": 25,
+
+    "1chronicles": 29,
+    "2chronicles": 36,
+
+    ezra: 10,
+    nehemiah: 13,
+    esther: 10,
+    job: 42,
+
+    psalms: 150,
+    proverbs: 31,
+    ecclesiastes: 12,
+    songofsolomon: 8,
+
+    isaiah: 66,
+    jeremiah: 52,
+    lamentations: 5,
+    ezekiel: 48,
+    daniel: 12,
+
+    hosea: 14,
+    joel: 3,
+    amos: 9,
+    obadiah: 1,
+    jonah: 4,
+    micah: 7,
+    nahum: 3,
+    habakkuk: 3,
+    zephaniah: 3,
+    haggai: 2,
+    zechariah: 14,
+    malachi: 4,
+
+
+    // NEW TESTAMENT
+
+    matthew: 28,
+    mark: 16,
+    luke: 24,
+    john: 21,
+    acts: 28,
+
+    romans: 16,
+
+    "1corinthians": 16,
+    "2corinthians": 13,
+
+    galatians: 6,
+    ephesians: 6,
+    philippians: 4,
+    colossians: 4,
+
+    "1thessalonians": 5,
+    "2thessalonians": 3,
+
+    "1timothy": 6,
+    "2timothy": 4,
+
+    titus: 3,
+    philemon: 1,
+
+    hebrews: 13,
+    james: 5,
+
+    "1peter": 5,
+    "2peter": 3,
+
+    "1john": 5,
+    "2john": 1,
+    "3john": 1,
+
+    jude: 1,
+    revelation: 22
+
+};
 
 
 
-<div id="chapterSection" class="chapter-section">
+// =====================================
+// BOOK NAMES
+// =====================================
 
-    <h2 id="selectedBookName">
-        పుస్తకాన్ని ఎంచుకోండి
-    </h2>
-
-    <div id="chaptersGrid" class="chapters-grid"></div>
-
-</div>
+const bookNames = {
 
 
-<div id="verseSection" class="verse-section">
+    genesis: "ఆదికాండము",
+    exodus: "నిర్గమకాండము",
+    leviticus: "లేవీయకాండము",
+    numbers: "సంఖ్యాకాండము",
+    deuteronomy: "ద్వితీయోపదేశకాండము",
 
-    <h2 id="selectedChapterName"></h2>
+    joshua: "యెహోషువ",
+    judges: "న్యాయాధిపతులు",
+    ruth: "రూతు",
 
-    <div id="versesContainer"></div>
+    "1samuel": "1 సమూయేలు",
+    "2samuel": "2 సమూయేలు",
 
-</div>
+    "1kings": "1 రాజులు",
+    "2kings": "2 రాజులు",
+
+    "1chronicles": "1 దినవృత్తాంతములు",
+    "2chronicles": "2 దినవృత్తాంతములు",
+
+    ezra: "ఎజ్రా",
+    nehemiah: "నెహెమ్యా",
+    esther: "ఎస్తేరు",
+    job: "యోబు",
+
+    psalms: "కీర్తనలు",
+    proverbs: "సామెతలు",
+    ecclesiastes: "ప్రసంగి",
+    songofsolomon: "పరమగీతము",
+
+    isaiah: "యెషయా",
+    jeremiah: "యిర్మీయా",
+    lamentations: "విలాపవాక్యములు",
+    ezekiel: "యెహెజ్కేలు",
+    daniel: "దానియేలు",
+
+    hosea: "హోషేయ",
+    joel: "యోవేలు",
+    amos: "ఆమోసు",
+    obadiah: "ఓబద్యా",
+    jonah: "యోనా",
+    micah: "మీకా",
+    nahum: "నహూము",
+    habakkuk: "హబక్కూకు",
+    zephaniah: "జెఫన్యా",
+    haggai: "హగ్గయి",
+    zechariah: "జెకర్యా",
+    malachi: "మలాకీ",
+
+
+    matthew: "మత్తయి",
+    mark: "మార్కు",
+    luke: "లూకా",
+    john: "యోహాను",
+    acts: "అపొస్తలుల కార్యములు",
+
+    romans: "రోమీయులకు",
+
+    "1corinthians": "1 కొరింథీయులకు",
+    "2corinthians": "2 కొరింథీయులకు",
+
+    galatians: "గలతీయులకు",
+    ephesians: "ఎఫెసీయులకు",
+    philippians: "ఫిలిప్పీయులకు",
+    colossians: "కొలొస్సయులకు",
+
+    "1thessalonians": "1 థెస్సలొనీకయులకు",
+    "2thessalonians": "2 థెస్సలొనీకయులకు",
+
+    "1timothy": "1 తిమోతికి",
+    "2timothy": "2 తిమోతికి",
+
+    titus: "తీతుకు",
+    philemon: "ఫిలేమోనుకు",
+
+    hebrews: "హెబ్రీయులకు",
+    james: "యాకోబు",
+
+    "1peter": "1 పేతురు",
+    "2peter": "2 పేతురు",
+
+    "1john": "1 యోహాను",
+    "2john": "2 యోహాను",
+    "3john": "3 యోహాను",
+
+    jude: "యూదా",
+    revelation: "ప్రకటన"
+
+};
 
 
 
-        
-        
-    </script>
+// =====================================
+// OPEN BOOK
+// =====================================
+
+function openBook(bookId) {
+
+
+    const bookName =
+        bookNames[bookId];
+
+
+    const totalChapters =
+        chapterCounts[bookId];
+
+
+    const bookTitle =
+        document
+        .getElementById("selectedBookName");
+
+
+    const chaptersGrid =
+        document
+        .getElementById("chaptersGrid");
+
+
+    const chapterSection =
+        document
+        .getElementById("chapterSection");
+
+
+    const verseSection =
+        document
+        .getElementById("verseSection");
+
+
+
+    // BOOK TITLE
+
+    bookTitle.textContent =
+        "📖 " + bookName;
+
+
+
+    // CLEAR OLD CHAPTERS
+
+    chaptersGrid.innerHTML = "";
+
+
+
+    // CREATE CHAPTER BUTTONS
+
+    for (
+        let chapter = 1;
+        chapter <= totalChapters;
+        chapter++
+    ) {
+
+
+        const button =
+            document.createElement("button");
+
+
+        button.textContent =
+            "అధ్యాయం " + chapter;
+
+
+        button.onclick = function () {
+
+
+            openChapter(
+                bookId,
+                chapter
+            );
+
+
+        };
+
+
+        chaptersGrid.appendChild(button);
+
+
+    }
+
+
+
+    // SHOW CHAPTER SECTION
+
+    chapterSection.style.display =
+        "block";
+
+
+    // HIDE VERSES
+
+    verseSection.style.display =
+        "none";
+
+
+
+    // SCROLL
+
+    chapterSection.scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
+
+}
+
+
+
+// =====================================
+// OPEN CHAPTER
+// =====================================
+
+function openChapter(
+    bookId,
+    chapterNumber
+) {
+
+
+    const verseSection =
+        document
+        .getElementById("verseSection");
+
+
+    const chapterTitle =
+        document
+        .getElementById("selectedChapterName");
+
+
+    const versesContainer =
+        document
+        .getElementById("versesContainer");
+
+
+
+    chapterTitle.textContent =
+
+        "📖 " +
+        bookNames[bookId] +
+        " — అధ్యాయం " +
+        chapterNumber;
+
+
+
+    // TEMPORARY VERSE
+
+    versesContainer.innerHTML = `
+
+        <div class="verse">
+
+            <span class="verse-number">
+                1
+            </span>
+
+            <span class="verse-text">
+
+                ఈ అధ్యాయం యొక్క బైబిల్ వచనాలు
+                త్వరలో ఇక్కడ కనిపిస్తాయి.
+
+            </span>
+
+        </div>
+
+    `;
+
+
+
+    verseSection.style.display =
+        "block";
+
+
+
+    verseSection.scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
+
+}
+
+
+</script>
+
 
 </body>
 
