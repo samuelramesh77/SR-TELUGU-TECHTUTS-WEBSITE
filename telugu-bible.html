@@ -1,1 +1,234 @@
+<!DOCTYPE html>
+<html lang="te">
 
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>తెలుగు బైబిల్ | SR TELUGU TECHTUTS</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <nav>
+
+            <a href="index.html" class="logo">
+                SR TELUGU TECHTUTS
+            </a>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="index.html#songs">Songs</a>
+                </li>
+
+                <li>
+                    <a href="index.html#gallery">Gallery</a>
+                </li>
+
+                <li class="dropdown">
+
+                    <a href="#">
+                        Bible ▾
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="telugu-bible.html">
+                                Telugu Bible
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="english-bible.html">
+                                English Bible
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="index.html#videos">Videos</a>
+                </li>
+
+                <li>
+                    <a href="index.html#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- TELUGU BIBLE -->
+
+    <section class="bible-section">
+
+        <div class="bible-container">
+
+            <h1>📖 తెలుగు బైబిల్</h1>
+
+            <p class="bible-subtitle">
+                దేవుని వాక్యాన్ని చదువుదాం • ధ్యానిద్దాం • జీవితంలో ఆచరిద్దాం
+            </p>
+
+
+            <!-- SEARCH -->
+
+            <div class="bible-search">
+
+                <input
+                    type="text"
+                    id="bibleSearch"
+                    placeholder="బైబిల్ పుస్తకం కోసం వెతకండి..."
+                >
+
+                <button onclick="searchBible()">
+                    Search
+                </button>
+
+            </div>
+
+
+            <!-- BOOKS -->
+
+            <div class="bible-books">
+
+                <h2>పాత నిబంధన</h2>
+
+                <div class="books-grid">
+
+                    <button>ఆదికాండము</button>
+                    <button>నిర్గమకాండము</button>
+                    <button>లేవీయకాండము</button>
+                    <button>సంఖ్యాకాండము</button>
+                    <button>ద్వితీయోపదేశకాండము</button>
+                    <button>యెహోషువ</button>
+                    <button>న్యాయాధిపతులు</button>
+                    <button>రూతు</button>
+                    <button>1 సమూయేలు</button>
+                    <button>2 సమూయేలు</button>
+                    <button>1 రాజులు</button>
+                    <button>2 రాజులు</button>
+                    <button>1 దినవృత్తాంతములు</button>
+                    <button>2 దినవృత్తాంతములు</button>
+                    <button>ఎజ్రా</button>
+                    <button>నెహెమ్యా</button>
+                    <button>ఎస్తేరు</button>
+                    <button>యోబు</button>
+                    <button>కీర్తనలు</button>
+                    <button>సామెతలు</button>
+                    <button>ప్రసంగి</button>
+                    <button>పరమగీతము</button>
+                    <button>యెషయా</button>
+                    <button>యిర్మీయా</button>
+                    <button>విలాపవాక్యములు</button>
+                    <button>యెహెజ్కేలు</button>
+                    <button>దానియేలు</button>
+                    <button>హోషేయ</button>
+                    <button>యోవేలు</button>
+                    <button>ఆమోసు</button>
+                    <button>ఓబద్యా</button>
+                    <button>యోనా</button>
+                    <button>మీకా</button>
+                    <button>నహూము</button>
+                    <button>హబక్కూకు</button>
+                    <button>జెఫన్యా</button>
+                    <button>హగ్గయి</button>
+                    <button>జెకర్యా</button>
+                    <button>మలాకీ</button>
+
+                </div>
+
+
+                <h2>కొత్త నిబంధన</h2>
+
+                <div class="books-grid">
+
+                    <button>మత్తయి</button>
+                    <button>మార్కు</button>
+                    <button>లూకా</button>
+                    <button>యోహాను</button>
+                    <button>అపొస్తలుల కార్యములు</button>
+                    <button>రోమీయులకు</button>
+                    <button>1 కొరింథీయులకు</button>
+                    <button>2 కొరింథీయులకు</button>
+                    <button>గలతీయులకు</button>
+                    <button>ఎఫెసీయులకు</button>
+                    <button>ఫిలిప్పీయులకు</button>
+                    <button>కొలొస్సయులకు</button>
+                    <button>1 థెస్సలొనీకయులకు</button>
+                    <button>2 థెస్సలొనీకయులకు</button>
+                    <button>1 తిమోతికి</button>
+                    <button>2 తిమోతికి</button>
+                    <button>తీతుకు</button>
+                    <button>ఫిలేమోనుకు</button>
+                    <button>హెబ్రీయులకు</button>
+                    <button>యాకోబు</button>
+                    <button>1 పేతురు</button>
+                    <button>2 పేతురు</button>
+                    <button>1 యోహాను</button>
+                    <button>2 యోహాను</button>
+                    <button>3 యోహాను</button>
+                    <button>యూదా</button>
+                    <button>ప్రకటన</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function searchBible() {
+
+            const search =
+                document.getElementById("bibleSearch").value
+                .toLowerCase();
+
+            const books =
+                document.querySelectorAll(".books-grid button");
+
+            books.forEach(book => {
+
+                const name =
+                    book.textContent.toLowerCase();
+
+                if (name.includes(search)) {
+
+                    book.style.display = "block";
+
+                } else {
+
+                    book.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
