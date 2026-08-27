@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // =====================================
 
 const YOUTUBE_API_KEY =
-    "AIzaSyCyVhpu_RwHpawkAuhZkTDKvRdHuPzT0YA";
+    "AIzaSyBdU7t7lVR8dKmB6ETIPfr5TVQirI0WEys";
 
 const CHANNEL_ID =
     "UC1mpDsJIOLiw1e6wP-56Sgw";
