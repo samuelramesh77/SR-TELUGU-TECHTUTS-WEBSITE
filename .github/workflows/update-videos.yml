@@ -1,0 +1,153 @@
+name: Update YouTube Videos
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-videos:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch YouTube RSS Feed
+        run: |
+
+          python - <<'PY'
+
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          import json
+          import html
+
+          CHANNEL_ID = "UC1mpDsJIOLiw1e6wP-56Sgw"
+
+          RSS_URL = (
+              "https://www.youtube.com/feeds/videos.xml?"
+              "channel_id=" + CHANNEL_ID
+          )
+
+          print("Fetching YouTube RSS...")
+
+          data = urllib.request.urlopen(
+              RSS_URL,
+              timeout=30
+          ).read()
+
+          root = ET.fromstring(data)
+
+          ns = {
+              "yt": "http://www.youtube.com/xml/schemas/2015",
+              "atom": "http://www.w3.org/2005/Atom"
+          }
+
+          videos = []
+
+          for entry in root.findall(
+              "atom:entry",
+              ns
+          ):
+
+              video_id = entry.find(
+                  "yt:videoId",
+                  ns
+              )
+
+              title = entry.find(
+                  "atom:title",
+                  ns
+              )
+
+              published = entry.find(
+                  "atom:published",
+                  ns
+              )
+
+              if video_id is None:
+                  continue
+
+              video_id = video_id.text
+
+              video_title = (
+                  title.text
+                  if title is not None
+                  else "YouTube Video"
+              )
+
+              published_date = (
+                  published.text
+                  if published is not None
+                  else ""
+              )
+
+              videos.append({
+
+                  "id": video_id,
+
+                  "title": html.unescape(
+                      video_title
+                  ),
+
+                  "url":
+                      "https://www.youtube.com/watch?v="
+                      + video_id,
+
+                  "thumbnail":
+                      "https://i.ytimg.com/vi/"
+                      + video_id
+                      + "/hqdefault.jpg",
+
+                  "published":
+                      published_date
+
+              })
+
+          videos = videos[:12]
+
+          output = {
+              "videos": videos
+          }
+
+          with open(
+              "videos.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print(
+              "Videos updated:",
+              len(videos)
+          )
+
+          PY
+
+      - name: Commit updated videos.json
+        run: |
+
+          git config user.name "github-actions[bot]"
+
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add videos.json
+
+          git diff --cached --quiet || \
+            git commit -m "Update YouTube videos"
+
+          git push
