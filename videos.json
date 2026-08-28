@@ -1,0 +1,11 @@
+{
+  "videos": [
+    {
+      "id": "XXXXXXXXXXX",
+      "title": "మీ వీడియో పేరు",
+      "url": "https://www.youtube.com/watch?v=XXXXXXXXXXX",
+      "thumbnail": "https://i.ytimg.com/vi/XXXXXXXXXXX/hqdefault.jpg",
+      "published": "2026-08-28T10:00:00Z"
+    }
+  ]
+}
