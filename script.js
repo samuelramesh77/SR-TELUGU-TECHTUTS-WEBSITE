@@ -1,12 +1,11 @@
-// =====================================
-// SR TELUGU TECHTUTS WEBSITE
-// MAIN JAVASCRIPT
-// =====================================
+// ======================================================
+// SR TELUGU TECHTUTS - MAIN JAVASCRIPT
+// ======================================================
 
 
-// =====================================
+// ======================================================
 // WEBSITE LOADED
-// =====================================
+// ======================================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -17,10 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-// =====================================
+// ======================================================
 // MOBILE MENU
-// =====================================
+// ======================================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -30,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const mainNav =
         document.getElementById("mainNav");
 
-
     if (!menuToggle || !mainNav) {
 
         console.log(
@@ -38,51 +35,48 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         return;
-
     }
 
+    menuToggle.addEventListener(
+        "click",
+        function () {
 
-    menuToggle.addEventListener("click", function () {
+            mainNav.classList.toggle("active");
 
-        mainNav.classList.toggle("active");
-
-    });
+        }
+    );
 
 });
 
 
+// ======================================================
+// ANIMATION OBSERVER
+// ======================================================
 
-// =====================================
-// SCROLL ANIMATIONS
-// =====================================
+let animationObserver = null;
 
-document.addEventListener("DOMContentLoaded", function () {
+if ("IntersectionObserver" in window) {
 
-    const animatedItems =
-        document.querySelectorAll(
-            ".card, .youtube-card, .gallery-item"
-        );
-
-
-    if (!animatedItems.length) {
-        return;
-    }
-
-
-    const animationObserver =
+    animationObserver =
         new IntersectionObserver(
 
             function (entries) {
 
-                entries.forEach(function (entry) {
+                entries.forEach(
+                    function (entry) {
 
-                    if (entry.isIntersecting) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                        entry.target.classList.add("show");
+                            entry.target.classList.add(
+                                "show"
+                            );
+
+                        }
 
                     }
-
-                });
+                );
 
             },
 
@@ -92,203 +86,241 @@ document.addEventListener("DOMContentLoaded", function () {
 
         );
 
-
-    animatedItems.forEach(function (item) {
-
-        animationObserver.observe(item);
-
-    });
-
-});
+}
 
 
+// ======================================================
+// OBSERVE EXISTING ANIMATED ITEMS
+// ======================================================
 
-// =====================================
-// BACK TO TOP BUTTON
-// =====================================
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-document.addEventListener("DOMContentLoaded", function () {
+        const animatedItems =
+            document.querySelectorAll(
+                ".card, .youtube-card, .gallery-item, .video-card"
+            );
 
-    const backToTop =
-        document.getElementById("backToTop");
+
+        if (!animationObserver) {
+
+            return;
+
+        }
 
 
-    if (!backToTop) {
+        animatedItems.forEach(
+            function (item) {
 
-        console.log(
-            "Back to Top button not found!"
+                animationObserver.observe(
+                    item
+                );
+
+            }
         );
 
-        return;
+    }
+);
+
+
+// ======================================================
+// BACK TO TOP BUTTON
+// ======================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const backToTop =
+            document.getElementById(
+                "backToTop"
+            );
+
+
+        if (!backToTop) {
+
+            console.log(
+                "Back to Top button not found!"
+            );
+
+            return;
+
+        }
+
+
+        backToTop.style.display =
+            "none";
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (
+                    window.scrollY > 200
+                ) {
+
+                    backToTop.style.display =
+                        "flex";
+
+                } else {
+
+                    backToTop.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        backToTop.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
 
     }
+);
 
 
-    // Initial state
-
-    backToTop.style.display = "none";
-
-
-    window.addEventListener("scroll", function () {
-
-        if (window.scrollY > 200) {
-
-            backToTop.style.display = "flex";
-
-        }
-
-        else {
-
-            backToTop.style.display = "none";
-
-        }
-
-    });
-
-
-    backToTop.addEventListener(
-        "click",
-        function () {
-
-            window.scrollTo({
-
-                top: 0,
-
-                behavior: "smooth"
-
-            });
-
-        }
-    );
-
-});
-
-
-
-// =====================================
+// ======================================================
 // WEBSITE SEARCH
-// =====================================
+// ======================================================
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    const searchInput =
-        document.getElementById("websiteSearch");
-
-
-    const searchMessage =
-        document.getElementById("searchMessage");
-
-
-    if (!searchInput) {
-        return;
-    }
+        const searchInput =
+            document.getElementById(
+                "websiteSearch"
+            );
 
 
-    searchInput.addEventListener(
-        "input",
-        function () {
+        const searchMessage =
+            document.getElementById(
+                "searchMessage"
+            );
 
 
-            const searchText =
-                searchInput.value
-                .toLowerCase()
-                .trim();
+        if (!searchInput) {
+
+            return;
+
+        }
 
 
-            const searchableItems =
-                document.querySelectorAll(
-                    ".song-card, .video-card, .gallery-item"
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+
+                const searchText =
+                    searchInput.value
+                        .toLowerCase()
+                        .trim();
+
+
+                const searchableItems =
+                    document.querySelectorAll(
+                        ".song-card, .video-card, .youtube-card, .gallery-item"
+                    );
+
+
+                let foundItems = 0;
+
+
+                searchableItems.forEach(
+                    function (item) {
+
+                        const text =
+                            item.textContent
+                                .toLowerCase();
+
+
+                        if (
+                            searchText === "" ||
+                            text.includes(searchText)
+                        ) {
+
+                            item.style.display =
+                                "";
+
+                            foundItems++;
+
+                        } else {
+
+                            item.style.display =
+                                "none";
+
+                        }
+
+                    }
                 );
 
 
-            let foundItems = 0;
+                if (
+                    searchText !== "" &&
+                    foundItems === 0
+                ) {
 
+                    if (searchMessage) {
 
-            searchableItems.forEach(
-                function (item) {
-
-
-                    const text =
-                        item.textContent
-                        .toLowerCase();
-
-
-                    if (
-                        searchText === "" ||
-                        text.includes(searchText)
-                    ) {
-
-                        item.style.display = "";
-
-                        foundItems++;
-
-                    }
-
-                    else {
-
-                        item.style.display = "none";
+                        searchMessage.textContent =
+                            "ఏ ఫలితాలు కనిపించలేదు.";
 
                     }
 
                 }
-            );
 
+                else if (
+                    searchText !== ""
+                ) {
 
-            if (!searchMessage) {
-                return;
-            }
+                    if (searchMessage) {
 
+                        searchMessage.textContent =
+                            foundItems +
+                            " ఫలితాలు కనిపించాయి.";
 
-            if (
-                searchText !== "" &&
-                foundItems === 0
-            ) {
+                    }
 
-                searchMessage.textContent =
-                    "ఏ ఫలితాలు కనిపించలేదు.";
+                }
 
-            }
+                else {
 
-            else if (
-                searchText !== ""
-            ) {
+                    if (searchMessage) {
 
-                searchMessage.textContent =
-                    foundItems +
-                    " ఫలితాలు కనిపించాయి.";
+                        searchMessage.textContent =
+                            "";
 
-            }
+                    }
 
-            else {
-
-                searchMessage.textContent = "";
+                }
 
             }
+        );
 
-        }
-    );
-
-});
-
+    }
+);
 
 
-// =====================================
-// YOUTUBE DATA API v3
-// =====================================
-
-const YOUTUBE_API_KEY =
-    "AIzaSyBdU7t7lVR8dKmB6ETIPfr5TVQirI0WEys";
-
-const CHANNEL_ID =
-    "UC1mpDsJIOLiw1e6wP-56Sgw";
-
-const MAX_RESULTS = 12;
-
-
-
-// =====================================
-// LOAD YOUTUBE VIDEOS
-// =====================================
+// ======================================================
+// YOUTUBE VIDEOS
+// RSS / JSON VERSION
+// NO YOUTUBE API KEY REQUIRED
+// ======================================================
 
 async function loadYouTubeVideos() {
 
@@ -299,10 +331,11 @@ async function loadYouTubeVideos() {
         );
 
 
-    // Bible page / other pagesలో
-    // YouTube container లేకపోతే stop
-
     if (!youtubeContainer) {
+
+        console.log(
+            "YouTube videos container not found!"
+        );
 
         return;
 
@@ -312,123 +345,180 @@ async function loadYouTubeVideos() {
     try {
 
 
-        const apiURL =
-
-            "https://www.googleapis.com/youtube/v3/search" +
-
-            "?key=" +
-            encodeURIComponent(
-                YOUTUBE_API_KEY
-            ) +
-
-            "&channelId=" +
-            encodeURIComponent(
-                CHANNEL_ID
-            ) +
-
-            "&part=snippet,id" +
-
-            "&order=date" +
-
-            "&maxResults=" +
-            MAX_RESULTS +
-
-            "&type=video";
-
+        // ==================================================
+        // LOAD videos.json
+        // ==================================================
 
         const response =
-            await fetch(apiURL);
+            await fetch(
+                "videos.json?cache=" +
+                Date.now()
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "videos.json HTTP Error: " +
+                response.status
+            );
+
+        }
 
 
         const data =
             await response.json();
 
 
+        // ==================================================
+        // CLEAR CONTAINER
+        // ==================================================
 
-        // =====================================
-        // API ERROR
-        // =====================================
-
-        if (!response.ok) {
-
-            throw new Error(
-
-                data?.error?.message ||
-
-                "YouTube API Error: " +
-                response.status
-
-            );
-
-        }
+        youtubeContainer.innerHTML =
+            "";
 
 
-
-        youtubeContainer.innerHTML = "";
-
-
-
-        // =====================================
-        // NO VIDEOS
-        // =====================================
+        // ==================================================
+        // CHECK VIDEOS
+        // ==================================================
 
         if (
-            !data.items ||
-            data.items.length === 0
+            !data.videos ||
+            !Array.isArray(data.videos) ||
+            data.videos.length === 0
         ) {
 
-            youtubeContainer.innerHTML =
+            youtubeContainer.innerHTML = `
 
-                "<p>" +
-                "ప్రస్తుతం వీడియోలు అందుబాటులో లేవు." +
-                "</p>";
+                <div class="youtube-error">
+
+                    <p>
+                        ప్రస్తుతం YouTube వీడియోలు
+                        అందుబాటులో లేవు.
+                    </p>
+
+                </div>
+
+            `;
 
             return;
 
         }
 
 
-
-        // =====================================
+        // ==================================================
         // CREATE VIDEO CARDS
-        // =====================================
+        // ==================================================
 
-        data.items.forEach(
+        data.videos.forEach(
             function (video) {
 
 
+                if (!video) {
+
+                    return;
+
+                }
+
+
                 const videoId =
-                    video.id.videoId;
+                    video.id || "";
 
 
-                const title =
-                    video.snippet.title;
-
-
-                const thumbnail =
-
-                    video.snippet.thumbnails.high?.url ||
-
-                    video.snippet.thumbnails.medium?.url ||
-
-                    video.snippet.thumbnails.default?.url;
-
-
-
-                const publishedDate =
-
-                    new Date(
-                        video.snippet.publishedAt
-                    ).toLocaleDateString(
-                        "te-IN",
-                        {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric"
-                        }
+                const videoURL =
+                    video.url ||
+                    (
+                        "https://www.youtube.com/watch?v=" +
+                        videoId
                     );
 
 
+                const thumbnail =
+                    video.thumbnail ||
+                    (
+                        "https://i.ytimg.com/vi/" +
+                        videoId +
+                        "/hqdefault.jpg"
+                    );
+
+
+                const title =
+                    String(
+                        video.title ||
+                        "YouTube Video"
+                    );
+
+
+                // ==================================================
+                // SAFE TITLE
+                // ==================================================
+
+                const safeTitle =
+                    title
+                        .replace(
+                            /&/g,
+                            "&amp;"
+                        )
+                        .replace(
+                            /</g,
+                            "&lt;"
+                        )
+                        .replace(
+                            />/g,
+                            "&gt;"
+                        )
+                        .replace(
+                            /"/g,
+                            "&quot;"
+                        )
+                        .replace(
+                            /'/g,
+                            "&#039;"
+                        );
+
+
+                // ==================================================
+                // DATE
+                // ==================================================
+
+                let publishedDate =
+                    "";
+
+
+                if (
+                    video.published
+                ) {
+
+                    const date =
+                        new Date(
+                            video.published
+                        );
+
+
+                    if (
+                        !isNaN(
+                            date.getTime()
+                        )
+                    ) {
+
+                        publishedDate =
+                            date.toLocaleDateString(
+                                "te-IN",
+                                {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric"
+                                }
+                            );
+
+                    }
+
+                }
+
+
+                // ==================================================
+                // CREATE VIDEO CARD
+                // ==================================================
 
                 const videoCard =
                     document.createElement(
@@ -440,30 +530,23 @@ async function loadYouTubeVideos() {
                     "video-card";
 
 
-
-                // =====================================
-                // VIDEO CARD HTML
-                // =====================================
-
                 videoCard.innerHTML = `
 
                     <div class="video-thumbnail">
 
                         <img
                             src="${thumbnail}"
-                            alt="${title.replace(
-                                /"/g,
-                                "&quot;"
-                            )}"
+                            alt="${safeTitle}"
                             loading="lazy"
                         >
 
 
                         <a
-                            href="https://youtu.be/${videoId}"
+                            href="${videoURL}"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="video-play"
+                            aria-label="Watch ${safeTitle}"
                         >
                             ▶
                         </a>
@@ -479,32 +562,33 @@ async function loadYouTubeVideos() {
 
 
                         <h3>
-                            ${title}
+                            ${safeTitle}
                         </h3>
 
 
-                        <p class="video-date">
-
-                            📅 ${publishedDate}
-
-                        </p>
+                        ${
+                            publishedDate
+                            ? `
+                                <p class="video-date">
+                                    📅 ${publishedDate}
+                                </p>
+                              `
+                            : ""
+                        }
 
 
                         <a
-                            href="https://youtu.be/${videoId}"
+                            href="${videoURL}"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="watch-btn"
                         >
-
                             ▶ Watch Video
-
                         </a>
 
                     </div>
 
                 `;
-
 
 
                 youtubeContainer.appendChild(
@@ -516,40 +600,65 @@ async function loadYouTubeVideos() {
         );
 
 
+        // ==================================================
+        // ANIMATION FOR NEW CARDS
+        // ==================================================
+
+        if (
+            animationObserver
+        ) {
+
+            const newVideoCards =
+                youtubeContainer.querySelectorAll(
+                    ".video-card"
+                );
+
+
+            newVideoCards.forEach(
+                function (card) {
+
+                    animationObserver.observe(
+                        card
+                    );
+
+                }
+            );
+
+        }
+
 
         console.log(
-
-            "✅ YouTube videos loaded successfully:",
-
-            data.items.length
-
+            "YouTube videos loaded successfully:",
+            data.videos.length
         );
 
 
     }
 
-
     catch (error) {
 
 
         console.error(
-            "YouTube API Error:",
+            "YouTube videos loading error:",
             error
         );
 
 
         youtubeContainer.innerHTML = `
 
-            <p>
-                YouTube వీడియోలు లోడ్ చేయడంలో
-                సమస్య వచ్చింది.
-            </p>
+            <div class="youtube-error">
 
-            <p style="color:red;">
+                <p>
+                    ⚠️ YouTube వీడియోలు ప్రస్తుతం
+                    లోడ్ కాలేదు.
+                </p>
 
-                ${error.message}
+                <p>
+                    దయచేసి కొంతసేపటి తర్వాత
+                    మళ్లీ ప్రయత్నించండి.
+                </p>
 
-            </p>
+            </div>
 
         `;
 
@@ -558,10 +667,9 @@ async function loadYouTubeVideos() {
 }
 
 
-
-// =====================================
+// ======================================================
 // START YOUTUBE LOADING
-// =====================================
+// ======================================================
 
 document.addEventListener(
     "DOMContentLoaded",
