@@ -3510,194 +3510,371 @@ header nav > ul {
 }
 
 
+
 /* =====================================================
-   SR TELUGU TECHTUTS - FINAL HEADER MENU FIX
-   Compact desktop navigation
+   SR TELUGU TECHTUTS - FINAL CLEAN HEADER MENU
+   Compact • Elegant • No unwanted bullet
 ===================================================== */
+
+/* ---------- DESKTOP HEADER ---------- */
 
 @media (min-width: 769px) {
 
-    /* Header itself: keep logo and menu together */
     header {
         width: 100% !important;
+        min-height: 116px !important;
+
         padding: 18px 5% !important;
+
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
     }
 
-    /* Navigation: DO NOT spread menu across the screen */
+    /* Logo + menu stay together */
     header nav,
-    header .main-nav,
-    .main-nav {
+    header .main-nav {
         width: auto !important;
-        max-width: none !important;
-        flex: 0 0 auto !important;
+        max-width: 1400px !important;
 
         display: flex !important;
-        flex-direction: row !important;
         align-items: center !important;
         justify-content: flex-start !important;
 
-        gap: 8px !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+
+        gap: 0 !important;
         margin: 0 auto !important;
     }
 
-    /* Logo stays on the left with a controlled gap */
+    /* Logo */
     header nav .logo,
     header .main-nav .logo,
     .main-nav .logo,
     header > .logo {
-        flex-shrink: 0 !important;
+        flex: 0 0 auto !important;
+        margin-right: 48px !important;
         white-space: nowrap !important;
-        margin-right: 28px !important;
     }
 
-    /* Main menu links */
-    header nav > a,
-    header nav > .dropdown,
-    header .main-nav > a,
-    header .main-nav > .dropdown,
-    .main-nav > a,
-    .main-nav > .dropdown {
-        flex: 0 0 auto !important;
-        width: auto !important;
+    /* =================================================
+       MAIN MENU
+    ================================================= */
+
+    header .main-nav,
+    .main-nav {
+        list-style: none !important;
+    }
+
+    header .main-nav > *,
+    .main-nav > * {
+        list-style: none !important;
+    }
+
+    /* Remove any browser bullet/marker */
+    header .main-nav li,
+    .main-nav li,
+    header nav li {
+        list-style: none !important;
+        list-style-type: none !important;
         margin: 0 !important;
         padding: 0 !important;
-        white-space: nowrap !important;
     }
 
+    header .main-nav li::marker,
+    .main-nav li::marker,
+    header nav li::marker {
+        content: "" !important;
+        display: none !important;
+    }
+
+    /* Menu links */
     header nav > a,
     header nav > .dropdown > a,
     header .main-nav > a,
     header .main-nav > .dropdown > a,
     .main-nav > a,
     .main-nav > .dropdown > a {
+
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
 
+        flex: 0 0 auto !important;
         width: auto !important;
         min-width: 0 !important;
-        padding: 9px 13px !important;
-        margin: 0 !important;
 
-        color: #fff !important;
+        margin: 0 2px !important;
+        padding: 10px 14px !important;
+
+        color: #ffffff !important;
+        background: transparent !important;
+
         text-decoration: none !important;
+
         font-size: 15px !important;
         font-weight: 600 !important;
         line-height: 1.2 !important;
+
         white-space: nowrap !important;
 
-        border-radius: 8px !important;
+        border: 1px solid transparent !important;
+        border-radius: 9px !important;
+
         transition: all 0.25s ease !important;
     }
 
+    /* Normal hover */
     header nav > a:hover,
     header nav > .dropdown > a:hover,
     header .main-nav > a:hover,
     header .main-nav > .dropdown > a:hover,
     .main-nav > a:hover,
     .main-nav > .dropdown > a:hover {
+
         color: #ffd700 !important;
-        background: rgba(255, 215, 0, 0.08) !important;
-        transform: translateY(-1px);
+
+        background: rgba(255, 215, 0, 0.09) !important;
+
+        border-color: rgba(255, 215, 0, 0.18) !important;
+
+        transform: translateY(-1px) !important;
     }
 
-    /* Bible dropdown */
+    /* =================================================
+       BIBLE MENU
+    ================================================= */
+
     header nav .dropdown,
     header .main-nav .dropdown,
     .main-nav .dropdown {
+
         position: relative !important;
-    }
 
-    header nav .dropdown-menu,
-    header .main-nav .dropdown-menu,
-    .main-nav .dropdown-menu {
-        display: none !important;
-        position: absolute !important;
+        display: block !important;
 
-        top: calc(100% + 8px) !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+        list-style: none !important;
+        list-style-type: none !important;
 
-        width: 210px !important;
-        min-width: 210px !important;
-        max-width: 210px !important;
-
-        padding: 8px !important;
-        margin: 0 !important;
-
-        flex-direction: column !important;
-        gap: 3px !important;
-
-        background: rgba(15, 15, 15, 0.98) !important;
-        border: 1px solid rgba(255, 215, 0, 0.25) !important;
-        border-radius: 12px !important;
-
-        box-shadow:
-            0 12px 30px rgba(0, 0, 0, 0.65),
-            0 0 20px rgba(255, 215, 0, 0.08) !important;
-
-        z-index: 99999 !important;
-    }
-
-    header nav .dropdown:hover .dropdown-menu,
-    header .main-nav .dropdown:hover .dropdown-menu,
-    .main-nav .dropdown:hover .dropdown-menu {
-        display: flex !important;
-    }
-
-    header nav .dropdown-menu li,
-    header .main-nav .dropdown-menu li,
-    .main-nav .dropdown-menu li {
-        width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
     }
 
+    /* Remove bullet specifically from Bible */
+    header nav .dropdown::marker,
+    header .main-nav .dropdown::marker,
+    .main-nav .dropdown::marker {
+
+        content: "" !important;
+        display: none !important;
+    }
+
+    /* Bible link */
+    header nav .dropdown > a,
+    header .main-nav .dropdown > a,
+    .main-nav .dropdown > a {
+
+        color: #ffffff !important;
+    }
+
+    /* Bible hover / open */
+    header nav .dropdown:hover > a,
+    header .main-nav .dropdown:hover > a,
+    .main-nav .dropdown:hover > a {
+
+        color: #ffd700 !important;
+
+        background: rgba(255, 215, 0, 0.10) !important;
+
+        border-color: rgba(255, 215, 0, 0.22) !important;
+    }
+
+    /* =================================================
+       BIBLE SUBMENU
+    ================================================= */
+
+    header nav .dropdown-menu,
+    header .main-nav .dropdown-menu,
+    .main-nav .dropdown-menu {
+
+        position: absolute !important;
+
+        /* Directly below Bible */
+        top: calc(100% + 10px) !important;
+
+        left: 50% !important;
+        right: auto !important;
+
+        transform: translateX(-50%) !important;
+
+        width: 205px !important;
+        min-width: 205px !important;
+        max-width: 205px !important;
+
+        margin: 0 !important;
+        padding: 8px !important;
+
+        display: none !important;
+
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        gap: 3px !important;
+
+        list-style: none !important;
+        list-style-type: none !important;
+
+        background: rgba(13, 13, 13, 0.98) !important;
+
+        border: 1px solid rgba(255, 215, 0, 0.30) !important;
+
+        border-radius: 13px !important;
+
+        box-shadow:
+            0 15px 35px rgba(0, 0, 0, 0.65),
+            0 0 22px rgba(255, 215, 0, 0.08) !important;
+
+        z-index: 99999 !important;
+    }
+
+    /* Small gold pointer */
+    header nav .dropdown-menu::before,
+    header .main-nav .dropdown-menu::before,
+    .main-nav .dropdown-menu::before {
+
+        content: "" !important;
+
+        position: absolute !important;
+
+        top: -6px !important;
+        left: 50% !important;
+
+        width: 11px !important;
+        height: 11px !important;
+
+        transform: translateX(-50%) rotate(45deg) !important;
+
+        background: #0d0d0d !important;
+
+        border-left: 1px solid rgba(255, 215, 0, 0.30) !important;
+        border-top: 1px solid rgba(255, 215, 0, 0.30) !important;
+    }
+
+    /* Open dropdown */
+    header nav .dropdown:hover .dropdown-menu,
+    header .main-nav .dropdown:hover .dropdown-menu,
+    .main-nav .dropdown:hover .dropdown-menu {
+
+        display: flex !important;
+    }
+
+    /* Dropdown items */
+    header nav .dropdown-menu li,
+    header .main-nav .dropdown-menu li,
+    .main-nav .dropdown-menu li {
+
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        list-style: none !important;
+        list-style-type: none !important;
+    }
+
+    /* Dropdown links */
     header nav .dropdown-menu li a,
     header .main-nav .dropdown-menu li a,
     .main-nav .dropdown-menu li a {
+
         display: flex !important;
+
         align-items: center !important;
 
         width: 100% !important;
-        padding: 11px 14px !important;
+
+        min-height: 42px !important;
+
+        padding: 10px 14px !important;
         margin: 0 !important;
 
-        color: #fff !important;
+        color: #eeeeee !important;
+        background: transparent !important;
+
         font-size: 14px !important;
         font-weight: 500 !important;
+
         text-align: left !important;
         text-decoration: none !important;
 
-        border-radius: 8px !important;
+        border-radius: 9px !important;
+
         transition: all 0.25s ease !important;
     }
 
+    /* Dropdown hover */
     header nav .dropdown-menu li a:hover,
     header .main-nav .dropdown-menu li a:hover,
     .main-nav .dropdown-menu li a:hover {
+
         color: #ffd700 !important;
+
         background: rgba(255, 215, 0, 0.12) !important;
-        transform: translateX(4px) !important;
+
+        padding-left: 18px !important;
+
+        transform: none !important;
     }
 }
 
+
 /* =====================================================
-   MOBILE - KEEP THE EXISTING HAMBURGER BEHAVIOR
+   MOBILE NAVIGATION
 ===================================================== */
 
 @media (max-width: 768px) {
 
+    header {
+        padding: 15px 20px !important;
+    }
+
     header nav,
     header .main-nav,
     .main-nav {
+
         width: 100% !important;
+
         flex-direction: column !important;
         align-items: stretch !important;
+
         gap: 0 !important;
+
+        margin: 0 !important;
+    }
+
+    header .main-nav,
+    .main-nav {
+        list-style: none !important;
+    }
+
+    header .main-nav li,
+    .main-nav li,
+    header nav li {
+
+        list-style: none !important;
+        list-style-type: none !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    header .main-nav li::marker,
+    .main-nav li::marker,
+    header nav li::marker {
+
+        content: "" !important;
+        display: none !important;
     }
 
     header nav > a,
@@ -3706,6 +3883,7 @@ header nav > ul {
     header .main-nav > .dropdown,
     .main-nav > a,
     .main-nav > .dropdown {
+
         width: 100% !important;
     }
 
@@ -3715,14 +3893,46 @@ header nav > ul {
     header .main-nav > .dropdown > a,
     .main-nav > a,
     .main-nav > .dropdown > a {
+
         width: 100% !important;
+
         justify-content: center !important;
+
         padding: 13px 20px !important;
+
+        margin: 0 !important;
+    }
+
+    header nav .dropdown-menu,
+    header .main-nav .dropdown-menu,
+    .main-nav .dropdown-menu {
+
+        position: static !important;
+
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+
+        transform: none !important;
+
+        margin: 5px 0 !important;
+
+        box-shadow: none !important;
+
+        border-radius: 10px !important;
+    }
+
+    header nav .dropdown-menu::before,
+    header .main-nav .dropdown-menu::before,
+    .main-nav .dropdown-menu::before {
+
+        display: none !important;
     }
 
     header nav .logo,
     header .main-nav .logo,
     .main-nav .logo {
+
         margin-right: 0 !important;
     }
 }
