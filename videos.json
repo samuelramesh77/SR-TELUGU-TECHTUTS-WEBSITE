@@ -1,6 +1,13 @@
 {
   "videos": [
     {
+      "id": "1k-JM9XKm5Q",
+      "title": "PRABHU",
+      "url": "https://www.youtube.com/watch?v=1k-JM9XKm5Q",
+      "thumbnail": "https://i.ytimg.com/vi/1k-JM9XKm5Q/hqdefault.jpg",
+      "published": "2026-09-25T14:56:48+00:00"
+    },
+    {
       "id": "aEx0RcB0KIw",
       "title": "దేశమ సంతోషించుమా గంతులు వేయుమా | తెలుగు క్రైస్తవ గీతం | యేసుకై ఎదురు చూడుమా | Christian Song",
       "url": "https://www.youtube.com/watch?v=aEx0RcB0KIw",
@@ -76,13 +83,6 @@
       "url": "https://www.youtube.com/watch?v=l8-dw5BFmpo",
       "thumbnail": "https://i.ytimg.com/vi/l8-dw5BFmpo/hqdefault.jpg",
       "published": "2026-09-06T04:35:46+00:00"
-    },
-    {
-      "id": "T5Zx-pK6mQY",
-      "title": "నీ చేతిలో నా జీవితం | Nee Chetిలో Naa Jeevitham | Telugu Christian Worship Song | Jesus Song",
-      "url": "https://www.youtube.com/watch?v=T5Zx-pK6mQY",
-      "thumbnail": "https://i.ytimg.com/vi/T5Zx-pK6mQY/hqdefault.jpg",
-      "published": "2026-08-30T14:12:13+00:00"
     }
   ]
 }
